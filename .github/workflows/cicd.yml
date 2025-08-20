@@ -54,15 +54,16 @@ jobs:
         run: |
           ls -a
 
+          echo "Check PM2 status"
           pm2 status
-          
-          # Delete the node-app process
+
+          echo "Delete the node-app process"
           pm2 delete node-app || true
 
-          # Start the node-app process
+          echo "Start the node-app process"
           pm2 start "yarn start" --name="node-app"
 
-          # Save the process list
+          echo "Save the process list"
           pm2 save
 
           echo "Deployment completed."
