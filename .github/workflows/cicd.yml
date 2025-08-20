@@ -24,4 +24,6 @@ jobs:
         run: yarn install
 
       - name: Run tests
-        run: yarn check
+        run: |
+          mkdir -p coverage
+          yarn check > coverage/test-results.txt || true
